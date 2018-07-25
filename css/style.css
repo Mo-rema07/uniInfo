@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #555;
+    height: 100%;
+}
+
+body{
+    height:calc(100vh - 70px);
+}
+
+
+#ClassTitleBar {
+    background-color: #2196F3;
+    width: 100%;
+    height: 40px;
+    display: grid;
+    grid-template-columns: 40px auto;
+    grid-template-rows: 1fr 20px 1.2fr;
+    grid-template-areas:
+                        ". ."
+                        ". text"
+                        ". .";
+}
+
+#ClassTitleBar > p {
+    color:white;
+    font-weight: bold;
+    grid-area: text;
+}
+nav{
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 40px 150px 150px 150px auto;
+    grid-template-rows: 1fr 14px 1.2fr ;
+    grid-template-areas:
+            ". . . ."
+            " . home about countries "
+            ". . . .";
+}
+
+.shadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+nav> a{
+    color:black;
+    text-decoration: none;
+}
+
+.currentLink{
+    color: #2196F3;
+    font-weight: bold;
+}
+#navHome{
+    grid-area: home;
+}
+
+#navAbout {
+    grid-area:about;
+}
+
+#navCountries {
+    grid-area: countries;
+}
+
+#mainSpace {
+    display: grid;
+    grid-template-columns: 1fr 1100px 1fr;
+    grid-template-rows: 1fr 165px 1fr 165px 1fr 165px 1fr;
+    grid-template-areas:
+            ". . ."
+            ". les ."
+            ". . ."
+            ". mau ."
+            ". . ."
+            ". uk ."
+            ". . .";
+    height: 100%;
+}
+
+.countryHome {
+    background-color: #F4F4F4;
+    display: grid;
+    grid-template-columns: 290px 1fr 1fr 110px 1fr 157px 2fr;
+    grid-template-rows: 18px 60px 1fr 36px 1fr;
+    grid-template-areas:
+            "flag . . . . . ."
+            "flag . txt txt txt txt ."
+            "flag . . . . . ."
+            "flag . .uni . enrol ."
+            "flag . . . . . .";
+}
+
+#lesotho {
+    grid-area: les;
+}
+
+#mauritius {
+    grid-area: mau;
+}
+
+#uk {
+    grid-area: uk;
+}
+
+.flag{
+    box-shadow: none;
+    height: 165px;
+    width: 290px;
+    grid-area: flag;
+}
+.flagImage {
+}
+
+.countryText {
+    grid-area: txt;
+    font-size: 16px;
+}
+
+.btnUni {
+    grid-area: uni;
+}
+
+.btnEnrol {
+    grid-area: enrol;
+}
+
+.flagTitle {
+    position:relative;
+    z-index: 99999;
+}
+
+.btnUni, .btnEnrol{
+    background-color: #2196F3;
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr auto 1.2fr;
+    grid-template-areas:
+            ". . ."
+            ". text ."
+            ". . .";
+}
+
+.btnUni > a, .btnEnrol> a{
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+    grid-area: text;
+
+}
