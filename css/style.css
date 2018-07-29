@@ -78,8 +78,12 @@ nav> a{
     grid-area: countries;
 }
 
-#mainSpace {
+
+.mainSpace{
     margin-top: 70px;
+    height: 100%;
+}
+#homeSpace {
     display: grid;
     grid-template-columns: 1fr 1100px 1fr;
     grid-template-rows: 1fr 165px 1fr 165px 1fr 165px 1fr;
@@ -91,7 +95,6 @@ nav> a{
             ". . ."
             ". uk ."
             ". . .";
-    height: 100%;
 }
 
 .countryHome {
@@ -167,27 +170,20 @@ nav> a{
 
 }
 
-#aboutTextDiv{
-    position: relative;
-    margin-top: 70px;
+#aboutSpace{
     display: grid;
     grid-template-columns: 1fr 7fr 3fr;
     grid-template-rows: auto auto;
     grid-template-areas:
             ". heading ."
             ". about .";
-    z-index: 0;
 }
 
 #aboutText {
-    position: relative;
-    z-index : auto;
     grid-area: about;
     font-size: 0.9em;
 }
 
 #aboutHead {
-    position: relative;
-    z-index: auto;
     grid-area: heading;
 }
