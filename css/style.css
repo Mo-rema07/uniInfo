@@ -12,24 +12,25 @@ html {
 }
 
 body{
-    height:calc(100vh - 70px);
+    height:calc(100vh - 60px);
 }
 
 
 #ClassTitleBar {
+    color: white;
     z-index: 99999999;
     position: fixed;
     top: 0;
-    background-color: #2196F3;
+    background-color: #005994;
     width: 100%;
-    height: 40px;
+    height: 60px;
     display: grid;
-    grid-template-columns: 40px auto;
-    grid-template-rows: 1fr 20px 1.2fr;
+    grid-template-columns: 3% 70% 100fr 100fr 100fr 1fr;
+    grid-template-rows: 1fr auto 1.2fr;
     grid-template-areas:
-                        ". ."
-                        ". text"
-                        ". .";
+            ". . . . . ."
+            ". text navBar navBar navBar ."
+            ". . . . . .";
 }
 
 #ClassTitleBar > p {
@@ -37,36 +38,38 @@ body{
     font-weight: bold;
     grid-area: text;
 }
+nav>li {
+    height: 100%;
+}
+nav > li> a {
+    color:gainsboro;
+    text-decoration: none;
+}
+nav>li a:hover:not(.currentLink) {
+    color: white;}
 nav{
-    background-color: white;
+    list-style-type: none;
+    grid-area: navBar;
     z-index: 99999999;
-    position: fixed;
-    top: 40px;
     width: 100%;
-    height: 30px;
-    font-size: 0.7em;
+    height: 100%;
+    font-size: 0.8em;
     display: grid;
-    grid-template-columns: 40px 150px 150px 150px auto;
-    grid-template-rows: 1fr 14px 1.2fr ;
+    grid-template-columns: auto auto auto;
     grid-template-areas:
-            ". . . ."
-            " . home about countries "
-            ". . . .";
+            " home about countries ";
 }
 
 .shadow{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-nav> a{
-    color:#555;
-    text-decoration: none;
+.currentLink{
+    color: white !important;
+    font-weight: bold;
+    border-bottom: white solid 4px;
 }
 
-.currentLink{
-    color: #2196F3;
-    font-weight: bold;
-}
 #navHome{
     grid-area: home;
 }
@@ -79,15 +82,22 @@ nav> a{
     grid-area: countries;
 }
 
+ul {
+    list-style-type: none;
+}
 
+ul > li > a, ul > li > a:visited{
+    text-decoration: none;
+    color: #555;
+}
 .mainSpace{
-    margin-top: 70px;
+    margin-top: 60px;
     height: 100%;
 }
 #homeSpace {
     display: grid;
     grid-template-columns: 1fr 1100px 1fr;
-    grid-template-rows: 1fr 165px 1fr 165px 1fr 165px 1fr;
+    grid-template-rows: 1fr 159px 1fr 159px 1fr 159px 1fr;
     grid-template-areas:
             ". . ."
             ". les ."
@@ -102,7 +112,7 @@ nav> a{
     background-color: #F4F4F4;
     display: grid;
     grid-template-columns: 290px 1fr 1fr 110px 1fr 157px 2fr;
-    grid-template-rows: 18px 60px 1fr 36px 1fr;
+    grid-template-rows: 3fr 10fr 1fr 12fr 1fr;
     grid-template-areas:
             "flag . . . . . ."
             "flag . txt txt txt txt ."
@@ -124,12 +134,15 @@ nav> a{
 }
 
 .flag{
+    margin: 0;
+    overflow: hidden;
     box-shadow: none;
-    height: 165px;
-    width: 290px;
+    height: 159px;
+    width: 260px;
     grid-area: flag;
 }
 .flagImage {
+    display: block;
 }
 
 .countryText {
@@ -152,7 +165,7 @@ nav> a{
 
 .btnUni, .btnEnrol, .btnSeeAll{
     height: 30px;
-    background-color: #2196F3;
+    background-color: #0075C2;
     border-radius: 3px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -217,18 +230,14 @@ nav> a{
             ". heading2 heading2 heading2 ."
             ". . . . ."
             ". list2 list2 list2 ."
-             ". . . . .";
+            ". . . . .";
 
 
 }
 .countrySummary > ul {
+    padding: 3%;
+    background-color: white;
     font-size: 0.7em;
-    list-style-type: none;
-}
-
-.countrySummary > ul > li > a,.countrySummary > ul > li > a:visited {
-    text-decoration: none;
-    color: #555;
 }
 
 .countrySummary > h3{
@@ -263,4 +272,149 @@ nav> a{
 
 #ukSummary {
     grid-area: unk;
+}
+
+.dataSpace {
+    display: grid;
+    grid-template-columns:1fr 10fr 1fr 3fr 1fr ;
+    grid-template-rows: 1fr 9fr 9fr 1fr;
+    grid-template-areas:
+            ". . . . ."
+            ". view . other1 ."
+            ". view . . ."
+            ". . . . ."
+;
+}
+
+.viewSpace{
+    grid-area: view;
+    background-color: #F4F4F4;
+}
+
+#listViewSpace{
+
+    display: grid;
+    grid-template-columns: 1fr 80% 1fr ;
+    grid-template-rows: 1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+    grid-template-areas:
+            ". . ."
+            "title title title"
+            ". . ."
+            "indicator indicator indicator"
+            ". . ."
+            ". list3 ."
+            ". . ."
+            ". page1 ."
+            ". . ."
+            ". nav ."
+            ". . .";
+}
+
+#listViewSpace > h3 {
+    text-align: center;
+    grid-area: title;
+}
+
+#listViewSpace > p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.7em;
+    grid-area: indicator;
+}
+
+#listViewSpace > ul {
+    list-style-type: none;
+    background-color: white;
+    grid-area: list3;
+}
+#listViewSpace > ol > li > a , #listViewSpace > ol > li > a:visited{
+    text-decoration: none;
+    color: #555;
+}
+
+#listViewSpace > div.resPageNumbers{
+    grid-area: page1;
+}
+
+.resPageNumbers > ul {
+    display:grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    grid-template-areas: "1 2 3 4 5 6 7 8 9 ";
+}
+
+#listViewSpace > div.pageNav {
+    grid-area: nav;
+}
+
+.pageNav {
+    display:grid;
+    grid-template-columns: 1fr 1fr auto 1fr 1fr;
+    grid-template-areas: "f p . n l";
+}
+
+#first{
+    grid-area: f;
+}
+
+#prev{
+    grid-area: p;
+}
+
+#next{
+    grid-area: n;
+}
+
+#last{
+    grid-area: l;
+}
+
+.otherSources{
+    font-size: 0.65em;
+    background-color: #F4F4F4;
+    grid-area: other1;
+}
+
+#enrolViewSpace {
+    display:grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    grid-template-rows: 1fr auto 1fr auto 1fr 20% 1fr 30% 1fr 30% 1fr;
+    grid-template-areas:
+            ". . . . . . ."
+            "cou cou cou cou cou cou cou"
+            ". . . . . . ."
+            "grTitle grTitle grTitle grTitle grTitle grTitle grTitle"
+            ". . . . . . ."
+            ". . . graph . . ."
+            ". . . graph . . ."
+            ". ePrev . graph . eNext ."
+            ". . . graph . . ."
+            ". . . graph . . ."
+            ". . . . . . .";
+
+}
+
+#enrolViewSpace > h3{
+    text-align: center;
+    grid-area: cou;
+}
+
+#enrolViewSpace > h4{
+    text-align: center;
+    grid-area: grTitle;
+}
+
+#visual {
+    grid-area: graph;
+}
+
+#enrolNext{
+    grid-area: eNext;
+}
+
+#enrolPrev{
+    grid-area: ePrev;
+}
+
+canvas{
+    height: 90%;
 }
