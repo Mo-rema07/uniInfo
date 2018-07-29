@@ -17,6 +17,9 @@ body{
 
 
 #ClassTitleBar {
+    z-index: 99999999;
+    position: fixed;
+    top: 0;
     background-color: #2196F3;
     width: 100%;
     height: 40px;
@@ -35,6 +38,9 @@ body{
     grid-area: text;
 }
 nav{
+    z-index: 9999999;
+    position: fixed;
+    top: 40px;
     width: 100%;
     height: 30px;
     font-size: 14px;
@@ -73,6 +79,7 @@ nav> a{
 }
 
 #mainSpace {
+    margin-top: 70px;
     display: grid;
     grid-template-columns: 1fr 1100px 1fr;
     grid-template-rows: 1fr 165px 1fr 165px 1fr 165px 1fr;
@@ -158,4 +165,29 @@ nav> a{
     font-weight: 700;
     grid-area: text;
 
+}
+
+#aboutTextDiv{
+    position: relative;
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 7fr 3fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+            ". heading ."
+            ". about .";
+    z-index: 0;
+}
+
+#aboutText {
+    position: relative;
+    z-index : auto;
+    grid-area: about;
+    font-size: 0.9em;
+}
+
+#aboutHead {
+    position: relative;
+    z-index: auto;
+    grid-area: heading;
 }
