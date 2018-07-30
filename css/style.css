@@ -33,10 +33,11 @@ body{
             ". . . . . .";
 }
 
-#ClassTitleBar > p {
+#ClassTitleBar > p ,#ClassTitleBar > p >a{
     color:white;
     font-weight: bold;
     grid-area: text;
+    text-decoration: none;
 }
 nav>li {
     height: 100%;
