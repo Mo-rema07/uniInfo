@@ -205,7 +205,7 @@ ul > li > a, ul > li > a:visited{
 .countrySummary{
     background-color: #F4F4F4;
     display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns:1fr 1.5fr 4fr 1.5fr 1fr;
     grid-template-rows: 1fr auto 1fr auto 1fr 5fr 1fr auto 1fr auto 1fr 11fr 1fr;
     grid-template-areas:
             ". . . . ."
@@ -224,7 +224,7 @@ ul > li > a, ul > li > a:visited{
 
 
 }
-.countrySummary > ul {
+.countrySummary > div.enrolStats, .countrySummary > ul {
     padding: 3%;
     background-color: white;
     font-size: 0.7em;
@@ -240,15 +240,17 @@ ul > li > a, ul > li > a:visited{
 
 .countrySummary > ul.first5 {
     grid-area: list1;
+    text-align: left;
+    white-space: nowrap;
 }
-.countrySummary > div{
+.countrySummary > button{
     grid-area: btn;
 }
 .countrySummary > h4.enrol{
     grid-area: heading2;
 }
 
-.countrySummary > ul.enrolStats{
+.countrySummary > div.enrolStats{
     grid-area: list2;
 }
 
@@ -434,4 +436,17 @@ button:focus {
 
 button:active {
     transform: scale(0.99);
+}
+
+.btnEnrolStats{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: block;
+    background-color: transparent;
+    color: #555;
+}
+
+.btnEnrolStats:hover,
+.btnEnrolStats:focus {
+    background: grey;
 }
