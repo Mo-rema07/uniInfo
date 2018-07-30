@@ -6,6 +6,10 @@
     <title>Home - Tertiary Education Information Board</title>
     <link rel="stylesheet" type="text/css" media="screen" href="css/vendor/normalize.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/handlebars-v4.0.11.js"></script>
 </head>
 <body>
 <div id="ClassTitleBar" class="shadow">
@@ -28,8 +32,8 @@
         </div>
         <p class = "countryText">Lesotho is a mountainous Kingdom in Southern Africa. The Kingdom is completely surrounded bby South Africa</p>
         <!--TODO Ensure that clicking the button takes the user to the information associated with the country in question-->
-        <div class = "btnUni"><a href="list.html"> Universities</a></div>
-        <div class = "btnEnrol"><a href="enrolment.html"> Enrolment Statistics</a></div>
+        <button id="lesUni" class = "btnUni"> Universities</button>
+        <button id="lesEnrol" class = "btnEnrol" >Enrolment Statistics</button>
     </div>
     <div id ="mauritius" class = "countryHome shadow">
         <div class="flag">
@@ -39,8 +43,8 @@
             <!--</div>-->
         </div>
         <p class = "countryText">Lesotho is a mountainous Kingdom in Southern Africa. The Kingdom is completely surrounded bby South Africa</p>
-        <div class = "btnUni"><a href="list.html"> Universities</a></div>
-        <div class = "btnEnrol"><a href="enrolment.html"> Enrolment Statistics</a></div>
+        <button id="mauUni" class = "btnUni"> Universities</button>
+        <button id="mauEnrol" class = "btnEnrol" >Enrolment Statistics</button>
     </div>
     <div id="uk" class = "countryHome shadow">
         <div class="flag">
@@ -50,9 +54,10 @@
             <!--</div>-->
         </div>
         <p class = "countryText">Lesotho is a mountainous Kingdom in Southern Africa. The Kingdom is completely surrounded bby South Africa</p>
-        <div class = "btnUni"><a href="list.html"> Universities</a></div>
-        <div class = "btnEnrol"><a href="enrolment.html"> Enrolment Statistics</a></div>
+        <button id="ukUni" class = "btnUni"> Universities</button>
+        <button id="ukEnrol" class = "btnEnrol" >Enrolment Statistics</button>
     </div>
 </div>
+<script src="js/index.js"></script>
 </body>
 </html>
