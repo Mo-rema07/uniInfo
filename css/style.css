@@ -448,5 +448,12 @@ button:active {
 
 .btnEnrolStats:hover,
 .btnEnrolStats:focus {
-    background: grey;
+    background: #008BE8;
+    color:white;
 }
+
+#enrolPrev:hover, #enrolPrev:focus,
+#enrolNext:hover,#enrolNext:focus {
+    background-color: transparent;
+}
+
