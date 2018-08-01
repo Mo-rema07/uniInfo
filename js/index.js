@@ -7,3 +7,18 @@ function loadEnrol(){
 
 }
 loadEnrol();
+
+
+function loadList() {
+    let country;
+    $(".btnUni").click(function () {
+        country= $(this).parent().attr('id');
+        if (country==="uk"){
+            country="united kingdom"
+        }
+        window.location = "list.html?country="+country;
+    });
+
+}
+
+loadList();

@@ -51,7 +51,7 @@ function loadDoc(code,indicator) {
             var year =[];
             var percentage=[];
 
-            for (var i=0; i<data.length; i++){
+            for (var i=data.length-1; i>-1; i--){
                 year.push(data[i].date);
                 percentage.push(data[i].value);
             }
