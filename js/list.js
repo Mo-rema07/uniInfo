@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    const maxPages =9;
+    let maxPages =1;
     let pageStart =1;
     let pageNumber = 0;
     let resultsBeg = 1;
@@ -25,6 +25,7 @@ $(document).ready(function() {
             let size = data.length;
             let end = (resultsEnd>=size) ? size : resultsEnd;
             let pages ='';
+            maxPages = Math.ceil(resultsEnd/10);
             // let pageEnd = (pageCount>=maxPages)? maxPages : pageCount;
             // for (let i=1;i<=pageEnd;i++){
             //     pages+='<li class = "pageNum">'+i+'</li>';
@@ -65,29 +66,31 @@ $(document).ready(function() {
     }
 
     function loadNext(){
-
-        if (!pageNumber>=pageCount){
-            $('#next').click(function () {
+        $('#next').click(function () {
+            console.log("page :"+pageNumber+" max is "+maxPages+" condition is "+(pageNumber<maxPages-1));
+            if (pageNumber<maxPages-1){
                 pageNumber+=1;
                 resultsBeg+=10;
                 resultsEnd+=10;
                 $('.resPageNumbers>ul').empty();
                 $("#uniList").empty();
                 loadDoc(country);
-            });
-        }
+            }
+        });
+
     }
     function loadPrev(){
-        if (!pageNumber<=0){
-            $('#prev').click(function () {
+        $('#prev').click(function () {
+            if (pageNumber>0){
                 pageNumber-=1;
                 resultsBeg-=10;
                 resultsEnd-=10;
                 $('.resPageNumbers>ul').empty();
                 $("#uniList").empty();
                 loadDoc(country);
-            });
-        }
+            }
+        });
+
     }
     loadDoc(country);
     loadEnrol();
