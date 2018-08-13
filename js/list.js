@@ -79,7 +79,6 @@ $(document).ready(function() {
         });
 
     }
-    //Just changed to SSH
     function loadPrev(){
         $('#prev').click(function () {
             if (pageNumber>0){
