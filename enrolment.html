@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Enrolment Statistics - Tertiary Education Information Board</title>
-    X
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
            integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/mediaQueries.css" />
 </head>
 <body>
 <div id="ClassTitleBar" class="shadow">
@@ -23,7 +24,15 @@
 </div>
 <div class="mainSpace dataSpace" id="enrolSpace">
     <div class ="viewSpace shadow" id ="enrolViewSpace" >
-        <h3>Lesotho</h3>
+        <form id ="countryName" >
+            <select name="countryName">
+                <option value="">Select Country</option>
+                <option value="lesotho">Lesotho</option>
+                <option value="mauritius">Mauritius</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+            <br><br>
+        </form>
         <div id="visual" class="container">
             <canvas id="myChart"></canvas>
         </div>
@@ -37,8 +46,8 @@
         </button>
     </div>
     <div class = "otherSources shadow">
-        <h4 class = "otherEnrol">Enrolment Statistics for Lesotho</h4>
-        <div class="otherEnrolStats">
+        <h4 class = "otherEnrol enrolHead">Enrolment Statistics for Lesotho</h4>
+        <div class="otherEnrolStats enrolList">
             <button class="btnEnrolStats">All Programmes of Study</button>
             <button class="btnEnrolStats">Agriculture</button>
             <button class="btnEnrolStats">Education</button>
@@ -50,12 +59,12 @@
             <button class="btnEnrolStats">Services</button>
             <button class="btnEnrolStats">Social Sciences, Business and Law</button>
         </div>
-        <h4>List of  Universities</h4>
-        <ul>
-            <li><a href="list.html">Lesotho</a></li>
-            <li><a href="list.html">Mauritius</a></li>
-            <li><a href="list.html">United Kingdom</a></li>
-        </ul>
+        <h4 class="listHead">List of  Universities</h4>
+        <div class="otherList">
+            <button class="btnList">Lesotho</button>
+            <button class="btnList">Mauritius</button>
+            <button class="btnList">United Kingdom</button>
+        </div>
     </div>
 </div>
 <script src="js/enrolment.js"></script>

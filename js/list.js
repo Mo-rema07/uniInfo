@@ -1,30 +1,99 @@
 $(document).ready(function() {
-    let pageNumber = 1;
+    const maxPages =9;
+    let pageStart =1;
+    let pageNumber = 0;
     let resultsBeg = 1;
-    let resultsEnd = resultsBeg+14;
-    let count = 0;
+    let resultsEnd = resultsBeg+9;
+    let pageCount = 1;
+
     const url = window.location.href;
     const index = url.indexOf("?");
     let params = url.substring(index + 1).split("&");
     let param = params[0];
     let country = param.substring(param.indexOf("country=")+8);
-    let req = $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/http://universities.hipolabs.com/search?country="+country,
-        type:"get",
-        dataType: "json"
-    });
-    req.done(function(data) {
-        console.log(data);
-        let list='';
-        $.each(data,function(index, entry){
-            console.log(entry);
-            count++;
-            if (count>=resultsBeg && count<=resultsEnd){
-                list+='<button><a href='+entry.web_pages[0]+'>'+entry.name+'</a></button>'
-            }
+
+    function loadDoc(country) {
+        let count = 0;
+        let cou = (country.charAt(0).toUpperCase() + country.substr(1)).replace(/%20/g, " ");
+        $('#country').text("List of Universities in "+cou);
+        let req = $.ajax({
+            url: "https://cors-anywhere.herokuapp.com/http://universities.hipolabs.com/search?country="+country,
+            type:"get",
+            dataType: "json"
         });
-        pageNumber+=1;
-        $("#uniList").append(list);
-    });
+        req.done(function(data) {
+            let size = data.length;
+            let end = (resultsEnd>=size) ? size : resultsEnd;
+            let pages ='';
+            // let pageEnd = (pageCount>=maxPages)? maxPages : pageCount;
+            // for (let i=1;i<=pageEnd;i++){
+            //     pages+='<li class = "pageNum">'+i+'</li>';
+            // }
+            $('.resPageNumbers>ul').append(pages);
+            let list='';
+            $.each(data,function(index, entry){
+                count++;
+                if (count>=resultsBeg && count<=resultsEnd){
+                    list+='<button class='+'"listUniversities"'+' ><a href='+entry.web_pages[0]+'>'+entry.name+'</a></button>'
+                }
+            });
+            pageCount = Math.ceil(size/10);
+            $("#uniList").append(list);
+            $('#showing').text('Showing '+resultsBeg+' - '+end+' of '+size+' universities');
+        });
+
+    }
+    function loadAnother() {
+        let newCountry;
+        $(".btnList").click(function () {
+            newCountry= $(this).text().toLowerCase();
+            $("#uniList").empty();
+            loadDoc(newCountry);
+            pageNumber=0;
+        });
+    }
+
+    function loadEnrol(){
+        let countryName = country;
+        if (countryName === "united kingdom" || countryName === "united%20kingdom"){
+            countryName = "uk";
+        }
+        $(".btnEnrolStats").click(function () {
+            indicator=$(this).text().split(" ").join("");
+            window.location = "enrolment.html?country="+countryName+"&indicator="+indicator;
+        });
+    }
+
+    function loadNext(){
+
+        if (!pageNumber>=pageCount){
+            $('#next').click(function () {
+                pageNumber+=1;
+                resultsBeg+=10;
+                resultsEnd+=10;
+                $('.resPageNumbers>ul').empty();
+                $("#uniList").empty();
+                loadDoc(country);
+            });
+        }
+    }
+    function loadPrev(){
+        if (!pageNumber<=0){
+            $('#prev').click(function () {
+                pageNumber-=1;
+                resultsBeg-=10;
+                resultsEnd-=10;
+                $('.resPageNumbers>ul').empty();
+                $("#uniList").empty();
+                loadDoc(country);
+            });
+        }
+    }
+    loadDoc(country);
+    loadEnrol();
+    loadAnother();
+    loadPrev();
+    loadNext();
 
 });
+

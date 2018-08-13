@@ -96,8 +96,8 @@ ul > li > a, ul > li > a:visited{
 }
 #homeSpace {
     display: grid;
-    grid-template-columns: 1fr 1100px 1fr;
-    grid-template-rows: 1fr 159px 1fr 159px 1fr 159px 1fr;
+    grid-template-columns: 1fr 18fr 1fr;
+    grid-template-rows: 1fr 26% 1fr 26% 1fr 26% 1fr;
     grid-template-areas:
             ". . ."
             ". les ."
@@ -278,12 +278,14 @@ ul > li > a, ul > li > a:visited{
 }
 
 .viewSpace{
+
+    margin-top: 50px;
     grid-area: view;
     background-color: #F4F4F4;
 }
 
 #listViewSpace{
-
+    margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 80% 1fr ;
     grid-template-rows: 1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
@@ -313,14 +315,17 @@ ul > li > a, ul > li > a:visited{
     grid-area: indicator;
 }
 
-#listViewSpace > ul {
+#listViewSpace > div#uniList {
     list-style-type: none;
     background-color: white;
     grid-area: list3;
-}
-#listViewSpace > ol > li > a , #listViewSpace > ol > li > a:visited{
-    text-decoration: none;
-    color: #555;
+    display: grid;
+    grid-template-columns: auto;
+    height: 50vh;
+    padding-left: 20px;
+    padding-top: 0;
+    position:relative;
+
 }
 
 #listViewSpace > div.resPageNumbers{
@@ -360,14 +365,29 @@ ul > li > a, ul > li > a:visited{
 }
 
 .otherSources{
+    margin-top: 50px;
     font-size: 0.65em;
     background-color: #F4F4F4;
     grid-area: other1;
+    display: grid;
+    grid-template-columns: 2fr 18fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-template-areas:
+            ". . ."
+            ". . ."
+            ". h1 ."
+            ". e ."
+            ". h2 ."
+            ". l ."
+            ". . ."
+            ;
 }
-
+#enrolSpace{
+    margin-top: 30px;
+}
 #enrolViewSpace {
     display:grid;
-    grid-template-columns: 1fr 2fr 1fr 650px 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 70% 1fr 2fr 1fr;
     grid-template-rows: 1fr auto 1fr 20% 1fr 30% 1fr 30% 1fr;
     grid-template-areas:
             ". . . . . . ."
@@ -382,7 +402,7 @@ ul > li > a, ul > li > a:visited{
 
 }
 
-#enrolViewSpace > h3{
+#countryName{
     text-align: center;
     grid-area: cou;
 }
@@ -428,16 +448,13 @@ button:focus {
     background: #0075C2;
 }
 
-button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
 
 button:active {
     transform: scale(0.99);
 }
 
 .btnEnrolStats{
+    text-align: left;
     margin-top: 2%;
     margin-bottom: 2%;
     display: block;
@@ -454,5 +471,77 @@ button:active {
 #enrolPrev:hover, #enrolPrev:focus,
 #enrolNext:hover,#enrolNext:focus {
     background-color: transparent;
+    outline: none;
+}
+
+.listUniversities, .listUniversities:hover, .listUniversities:focus{
+    background-color: transparent;
+}
+.listUniversities > a{
+    text-align: left;
+    grid-area: link;
+}
+
+.listUniversities {
+    text-align: left;
+    /*position:absolute;*/
+
+}
+.uni5> a{
+    text-align: left;
+}
+.uni5{
+    margin: 0;
+    height: 20%;
+    text-align: left;
+    background-color: transparent;
+    /*position: absolute;*/
+}
+
+.first5{
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto;
+    /*padding-left: 20px;*/
+    padding-top: 0;
+    position:relative;
+}
+select { outline: none; }
+
+.otherList{
+    display: grid;
+    grid-template-columns: auto;
+    grid-area: l;
+}
+
+.btnList {
+    margin:0;
+    background-color: transparent;
+    color: #555;
+    text-align: left;
+}
+
+.enrolHead{
+    grid-area: h1;
+}
+
+.enrolList{
+    grid-area: e;
+}
+
+.listHead{
+    grid-area: h2;
+}
+
+.pageNum{
+    text-align: center;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+}
+
+.currentPage{
+    background-color: #005994;
+    color: white;
 }
 

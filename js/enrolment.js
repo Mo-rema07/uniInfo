@@ -23,23 +23,18 @@ indicators =[{id: "AllProgrammesofStudy",code:"SE.TER.ENRR", text:"All Programme
     {id:"SocialSciences,BusinessandLaw",text:"Social Sciences, Business and Law",code:"UIS.FOSEP.56.F300"}]
 ;
 let length = indicators.length;
-console.log(length);
 let indIndex =0;
 const url = window.location.href;
 const index = url.indexOf("?");
 let params = url.substring(index + 1).split("&");
 let param = params[0];
 let country = param.substring(param.indexOf("country=")+8);
-const code = country_codes[country];
+let code = country_codes[country];
+
 param=params[1];
 country = param.substring(param.indexOf("indicator=")+10);
 let indicator;
-for (let i=length-1; i>-1; i--){
-    if(country===indicators[i].id){
-        indicator = indicators[i].code;
-        indIndex=i;
-    }
-}
+indicator = findIndicator(country);
 let apiResponse;
 function loadDoc(code,indicator) {
     var xhttp = new XMLHttpRequest();
@@ -47,10 +42,8 @@ function loadDoc(code,indicator) {
         if (this.readyState === 4 && this.status === 200) {
             apiResponse = JSON.parse(xhttp.responseText);
             var data = apiResponse[1];
-            console.log(data);
             var year =[];
             var percentage=[];
-
             for (var i=data.length-1; i>-1; i--){
                 year.push(data[i].date);
                 percentage.push(data[i].value);
@@ -70,6 +63,7 @@ function loadDoc(code,indicator) {
 
                 // Configuration options go here
                 options: {
+                    maintainAspectRatio : false,
                     title: {
                         display: true,
                         text: data[0].indicator.value
@@ -96,10 +90,8 @@ loadDoc(code,indicator);
 function loadNext(){
     $("#enrolNext").click(function () {
         if (indIndex < length-1) {
-            console.log(indIndex);
             indIndex += 1;
             indicator = indicators[indIndex].code;
-            console.log(indicator);
             loadDoc(code, indicator);
         }
     });
@@ -109,12 +101,52 @@ loadNext();
 function loadPrev(){
     $("#enrolPrev").click(function () {
         if (indIndex > 0) {
-            console.log(indIndex);
             indIndex -= 1;
             indicator = indicators[indIndex].code;
-            console.log(indicator);
             loadDoc(code, indicator);
         }
     });
 }
 loadPrev();
+
+function changeCountry(){
+    $('select').change(function (){
+        country= this.value;
+        code = country_codes[country];
+        loadDoc(code,indicator);
+    })
+}
+
+changeCountry();
+function findIndicator(title){
+    for (let i=length-1; i>-1; i--){
+        if(title===indicators[i].id){
+            indicator = indicators[i].code;
+            indIndex=i;
+        }
+
+    }
+    return indicator;
+}
+
+function loadDirect() {
+    $(".btnEnrolStats").click(function () {
+        indicator=$(this).text().split(" ").join("");
+        indicator=findIndicator(indicator);
+        loadDoc(code,indicator);
+    });
+}
+
+loadDirect();
+
+function loadList() {
+    let country;
+    $(".btnList").click(function () {
+        country= $(this).text().toLowerCase();
+        console.log(country);
+        window.location = "list.html?country="+country;
+    });
+
+}
+
+loadList();

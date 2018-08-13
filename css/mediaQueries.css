@@ -1,0 +1,155 @@
+/* Big tablet to 1200px (widths smaller than the 1140px row) */
+@media only screen and (max-width: 1200px) {
+    
+   
+
+}
+
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1023px) {
+    
+    body { font-size: 18px; }
+    
+    
+}
+
+/* Small phones to small tablets: from 481px to 767px */
+
+
+@media only screen and (max-width: 767px) {
+    #ClassTitleBar {
+        display: block;
+    }
+    #ClassTitleBar p {
+        margin-top: 5px;
+        margin-left: 10%;
+        display: block;
+    }
+    #ClassTitleBar nav{
+        margin-top: 10px;
+        margin-left: 30%;
+        display: block;
+    }
+    .dataSpace{
+        display: grid;
+        grid-template-columns: 1fr 95% 1fr;
+        grid-template-rows: 1fr 500px 1fr;
+        grid-template-areas:
+                ". . ."
+                ". vs ."
+                ". . .";
+
+    }
+    .viewSpace{
+        grid-area: vs;
+    }
+    body {height:auto;}
+
+    #countrySpace{
+        display: grid;
+        grid-template-columns: 6fr 90% 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas:
+                ". . ."
+                ". les ."
+                ". mau ."
+                ". uk ."
+                ". . ."
+    ;
+        width: 90%;
+    }
+    #ukSummary{
+        margin-top: 20px;
+        grid-area: uk;
+        margin-bottom: 20px;
+    }
+    #lesSummary{
+        margin-top: 20px;
+        grid-area: les;
+    }
+    #mauSummary{
+        margin-top: 20px;
+        grid-area: mau;
+    }
+
+    .countryHome{
+
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr 90% 1fr;
+        grid-template-rows: 1fr 22% 1fr 22% 1fr 22fr 1fr 22fr 1fr ;
+        grid-template-areas:
+                ". . ."
+                ". f ."
+                ". . ."
+                ". des ."
+                ". . ."
+                ". uniB ."
+                ". . ."
+                ". enrolB ."
+                ". . .";
+    }
+    .flagImage{
+
+    }
+    .flag{
+        margin-left: 20%;
+        grid-area: f;
+    }
+    .countryText{
+        text-align: center;
+        grid-area: des;
+    }
+    .btnUni{
+        grid-area: uniB;
+    }
+    .btnEnrol{
+        grid-area: enrolB;
+    }
+    body { font-size: 16px; }
+    #lesotho{
+        margin-top: 20px;
+    }
+
+    .otherSources{
+        display: none;
+    }
+
+}
+
+/* Small phones: from 0 to 480px */
+@media only screen and (max-width: 480px) {
+    .dataSpace{
+        display: grid;
+        grid-template-columns: 1fr 95% 1fr;
+        grid-template-rows: 1fr 90% 1fr;
+        grid-template-areas:
+                ". . ."
+                ". vs ."
+                ". . .";
+
+    }
+    .viewSpace{
+        grid-area: vs;
+    }
+    #enrolViewSpace {
+        width: 100%;
+        display:grid;
+        grid-template-columns: auto  auto 60% auto auto auto;
+        grid-template-rows: 1fr auto 1fr 20% 1fr 30% 1fr 30% 1fr;
+        grid-template-areas:
+                ". . . . . ."
+                "cou cou cou cou cou cou"
+                ". . . . . ."
+                ".  . graph . . ."
+                ".  . graph . . ."
+                "ePrev . graph . eNext ."
+                ". . graph . . ."
+                ". . graph . . ."
+                ". . . . . .";
+
+    }
+
+   
+
+}
