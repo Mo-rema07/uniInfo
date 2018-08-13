@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let maxPages =1;
-    let pageStart =1;
+    // let pageStart =1;
     let pageNumber = 0;
     let resultsBeg = 1;
     let resultsEnd = resultsBeg+9;
@@ -24,13 +24,13 @@ $(document).ready(function() {
         req.done(function(data) {
             let size = data.length;
             let end = (resultsEnd>=size) ? size : resultsEnd;
-            let pages ='';
-            maxPages = Math.ceil(resultsEnd/10);
+            // let pages ='';
+
             // let pageEnd = (pageCount>=maxPages)? maxPages : pageCount;
             // for (let i=1;i<=pageEnd;i++){
             //     pages+='<li class = "pageNum">'+i+'</li>';
             // }
-            $('.resPageNumbers>ul').append(pages);
+            // $('.resPageNumbers>ul').append(pages);
             let list='';
             $.each(data,function(index, entry){
                 count++;
@@ -39,18 +39,20 @@ $(document).ready(function() {
                 }
             });
             pageCount = Math.ceil(size/10);
+            maxPages = Math.ceil(size/10);
             $("#uniList").append(list);
             $('#showing').text('Showing '+resultsBeg+' - '+end+' of '+size+' universities');
         });
 
     }
     function loadAnother() {
-        let newCountry;
         $(".btnList").click(function () {
-            newCountry= $(this).text().toLowerCase();
+            country= $(this).text().toLowerCase();
             $("#uniList").empty();
-            loadDoc(newCountry);
+            loadDoc(country);
             pageNumber=0;
+            resultsBeg = 1;
+            resultsEnd = resultsBeg+9;
         });
     }
 
@@ -67,12 +69,12 @@ $(document).ready(function() {
 
     function loadNext(){
         $('#next').click(function () {
-            console.log("page :"+pageNumber+" max is "+maxPages+" condition is "+(pageNumber<maxPages-1));
+            console.log("country "+country+"page :"+pageNumber+" max is "+maxPages+" condition is "+(pageNumber<maxPages-1));
             if (pageNumber<maxPages-1){
                 pageNumber+=1;
                 resultsBeg+=10;
                 resultsEnd+=10;
-                $('.resPageNumbers>ul').empty();
+                // $('.resPageNumbers>ul').empty();
                 $("#uniList").empty();
                 loadDoc(country);
             }
@@ -85,7 +87,7 @@ $(document).ready(function() {
                 pageNumber-=1;
                 resultsBeg-=10;
                 resultsEnd-=10;
-                $('.resPageNumbers>ul').empty();
+                // $('.resPageNumbers>ul').empty();
                 $("#uniList").empty();
                 loadDoc(country);
             }
