@@ -12,13 +12,13 @@ const country_codes = {
     "uk":"GBR"
 };
 indicators =[{id: "AllProgrammesofStudy",code:"SE.TER.ENRR", text:"All Programmes of Study"},
-    {id:"Agriculture", code: "UIS.FOSEP.56.F600", text:"Agriculture"},
+    {id:"Agriculture", code: "UIS.FOSEP.56.F400", text:"Agriculture"},
     {id:"Education",code:"UIS.FOSEP.56.F140",text:"Education"},
     {id:"Engineering,ManufacturingandConstruction",text:"Engineering, Manufacturing and Construction",code:"UIS.FOSEP.56.F500"},
     {id:"HealthandWelfare",text:"Health and Welfare",code:"UIS.FOSEP.56.F700"},
     {id:"HumanitiesandArts",text:"Humanities and Arts",code:"UIS.FOSEP.56.F200"},
     {id:"UnspecifiedFields",text:"Unspecified Fields",code:"UIS.FOSEP.56.FUK"},
-    {id:"Science",text:"Science",code:"UIS.FOSEP.56.F400"},
+    {id:"Science",text:"Science",code:"UIS.FOSEP.56.F600"},
     {id:"Services",text:"Services",code:"UIS.FOSEP.56.F800"},
     {id:"SocialSciences,BusinessandLaw",text:"Social Sciences, Business and Law",code:"UIS.FOSEP.56.F300"}]
 ;
@@ -92,6 +92,7 @@ function loadNext(){
         if (indIndex < length-1) {
             indIndex += 1;
             indicator = indicators[indIndex].code;
+            $("#myChart").empty();
             loadDoc(code, indicator);
         }
     });
@@ -103,6 +104,7 @@ function loadPrev(){
         if (indIndex > 0) {
             indIndex -= 1;
             indicator = indicators[indIndex].code;
+            $("#myChart").empty();
             loadDoc(code, indicator);
         }
     });
@@ -113,6 +115,7 @@ function changeCountry(){
     $('select').change(function (){
         country= this.value;
         code = country_codes[country];
+        $("#myChart").empty();
         loadDoc(code,indicator);
     })
 }
@@ -133,6 +136,7 @@ function loadDirect() {
     $(".btnEnrolStats").click(function () {
         indicator=$(this).text().split(" ").join("");
         indicator=findIndicator(indicator);
+        $("#myChart").empty();
         loadDoc(code,indicator);
     });
 }
