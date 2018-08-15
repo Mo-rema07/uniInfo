@@ -14,7 +14,7 @@ $(document).ready(function() {
             $.each(data,function(index, entry){
                 count++;
                 if (count>=resultsBeg && count<=resultsEnd){
-                    list+='<button class='+'"uni5"'+' ><a href='+entry.web_pages[0]+'>'+entry.name+'</a></button>'
+                    list+='<a href='+'"'+entry.web_pages[0]+'"'+'><button class='+'"listUniversities"'+' >'+entry.name+'</button></a>'
                 }
             });
             $(destination).append(list);
@@ -45,7 +45,7 @@ function loadList() {
     let country;
     $(".btnSeeAll").click(function () {
         country= $(this).attr('id').substring(4).toLowerCase();
-        console.log(country)
+        console.log(country);
         if (country==="uk"){
             country="united kingdom"
         }

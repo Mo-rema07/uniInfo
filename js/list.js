@@ -35,7 +35,7 @@ $(document).ready(function() {
             $.each(data,function(index, entry){
                 count++;
                 if (count>=resultsBeg && count<=resultsEnd){
-                    list+='<button class='+'"listUniversities"'+' ><a href='+entry.web_pages[0]+'>'+entry.name+'</a></button>'
+                    list+='<a href='+'"'+entry.web_pages[0]+'"'+'><button class='+'"listUniversities"'+' >'+entry.name+'</button></a>'
                 }
             });
             pageCount = Math.ceil(size/10);
