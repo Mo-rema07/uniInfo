@@ -57,9 +57,7 @@ function loadList() {
 function visitSite() {
     let url;
     $(".uni5").click(function () {
-        console.log('cliked');
         url = $(this).firstChild;
-            // .attr('href');
         alert(url);
         }
     )
